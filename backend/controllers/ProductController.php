@@ -160,9 +160,15 @@ class ProductController extends Controller
                  return $this->redirect(Yii::$app->request->referrer);
             }
             else {
-                $srcProduct = Product::find()->where("id=".$src_product_id)->one(); 
-                $srcProduct["in_process"] = 0;
-                $srcProduct->save(false);
+                if($src_product_id) {
+                    $srcProduct = Product::find()->where("id=".$src_product_id)->one(); 
+                    if($srcProduct) {
+                        $srcProduct["in_process"] = 0;
+                        $srcProduct->save(false);                            
+                    }
+                
+                }
+
                 return $this->redirect(['index']);
             }
             
