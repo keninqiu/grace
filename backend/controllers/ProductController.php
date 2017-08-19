@@ -169,6 +169,7 @@ class ProductController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'process_id' => $process_id,
                 'process_name' => $process_name,
                 'employeeIds' => $employeeIds,
                 'employeeNames' => $employeeNames,

@@ -12,6 +12,7 @@ use Yii;
  */
 class Process extends \yii\db\ActiveRecord
 {
+    const PURCHASE = 1;
     /**
      * @inheritdoc
      */

@@ -6,6 +6,7 @@ use yii\widgets\ActiveForm;
 use app\models\Type;
 use app\models\Box;
 use app\models\Spec;
+use app\models\Process;
 use yii\helpers\ArrayHelper;
 /* @var $this yii\web\View */
 /* @var $model app\models\Product */
@@ -26,6 +27,14 @@ use yii\helpers\ArrayHelper;
     <?= $form->field($model, 'spec_id')->dropDownList(ArrayHelper::map(Spec::find()->all(), 'id', 'name')) ?>
 
     <?= $form->field($model, 'quantity')->textInput() ?>
+
+    <?php 
+    if($process_id == Process::PURCHASE) {
+    ?>
+    <?= $form->field($model, 'net_price')->textInput() ?>
+    <?php
+    }
+    ?>
 
     <div class="form-group">
         <label class="control-label"><?= Yii::t('app', 'Employee') ?></label>
