@@ -43,7 +43,7 @@ AppAsset::register($this);
         ],
         ['label' => '设置', 
               'items' => [
-                   ['label' => '仓库设置', 'url' => ['/stock/index']],
+                   //['label' => '仓库设置', 'url' => ['/stock/index']],
                    ['label' => '类型设置', 'url' => ['/type/index']],
                    ['label' => '包装设置', 'url' => ['/package/index']],
                    ['label' => '容器设置', 'url' => ['/box/index']],
