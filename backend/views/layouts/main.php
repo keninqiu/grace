@@ -50,7 +50,7 @@ AppAsset::register($this);
                    ['label' => '人员设置', 'url' => ['/employee/index']],
                    ['label' => '规格设置', 'url' => ['/spec/index']],
                    ['label' => '过程设置', 'url' => ['/process/index']],
-                   ['label' => '过程关系', 'url' => ['/process-relation/index']],
+                   ['label' => '流程设置', 'url' => ['/process-relation/index']],
               ],
         ],
 
