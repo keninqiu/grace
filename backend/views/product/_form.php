@@ -19,7 +19,12 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'type_id')->dropDownList(ArrayHelper::map(Type::find()->all(), 'id', 'name')) ?>
 
-    <?= Html::hiddenInput('src_product_id',$src_product_id); ?>
+    <?php 
+    if(isset($src_product_id)) {
+        echo Html::hiddenInput('src_product_id',$src_product_id); 
+    }
+    
+    ?>
     
 
     <?= $form->field($model, 'box_id')->dropDownList(ArrayHelper::map(Box::find()->all(), 'id', 'name')) ?>
@@ -29,24 +34,37 @@ use yii\helpers\ArrayHelper;
     <?= $form->field($model, 'quantity')->textInput() ?>
 
     <?php 
-    if($process_id == Process::PURCHASE) {
+    if(isset($process_id) && $process_id == Process::PURCHASE) {
     ?>
     <?= $form->field($model, 'net_price')->textInput() ?>
     <?php
     }
     ?>
-
+    <?php 
+    if(isset($employeeIds) && isset($employeeNames)) {
+    ?>
     <div class="form-group">
         <label class="control-label"><?= Yii::t('app', 'Employee') ?></label>
         <?= Html::dropDownList('employee', $employeeIds,$employeeNames, ['class' => 'form-control']); ?>
     </div>
+
     <div class="form-group">
         <label class="control-label"><?= Yii::t('app', 'Hours') ?></label>
         <?= Html::textInput('hours',0, ['class' => 'form-control']); ?>
-    </div>
+    </div>    
+    <?php
+    }
+    ?>
+
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Next Product') : Yii::t('app', 'Update'), ['name' => 'next_product', 'value' => 'next_product', 'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+
+
+        <?php
+        if($model->isNewRecord) {
+            echo  Html::submitButton($model->isNewRecord ? Yii::t('app', 'Next Product') : Yii::t('app', 'Update'), ['name' => 'next_product', 'value' => 'next_product', 'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']);
+        }
+        ?>
 
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Finish') : Yii::t('app', 'Update'), ['name' => 'finish', 'value' => 'finish', 'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
