@@ -62,4 +62,6 @@ return [
     'Finish' => '完成',
     'Next Product' => '下一个',
     'Employee Name' => '员工',
+    'Process ID' => '过程',
+    'Parent Process ID' => '上级过程',
 ];
