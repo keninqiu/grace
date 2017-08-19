@@ -29,8 +29,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'process_id',
-            'parent_process_id',
+            'process.name',
+            'parentProcess.name',
         ],
     ]) ?>
 
